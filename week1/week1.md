@@ -8,6 +8,8 @@ Bearbeitet Dateien
 
 - [functionsTest.html](./functionsTest.html)
 
+##### Javascript Funktionen
+
 Diese Woche haben wir Javasript Funktionen und deren Signaturen angeschaut.
 
 ```javascript

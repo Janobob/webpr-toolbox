@@ -5,4 +5,5 @@ Da ich bereits seit Jahren mit modernen Javascript Frameworks arbeite (Angular u
 
 ### Wocheübersicht
 
-[Woche 1](./week1/week1.md)
+- [Woche 1](./week1/week1.md)
+- [Woche 2](./week2/week2.md)

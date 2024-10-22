@@ -6,6 +6,7 @@
 
 Bearbeitet Dateien
 
+- [lambda.js](./lambda/lambda.js)
 - [lambdaTest.js](./lambda/lambdaTest.js)
 
 ##### Javascript Goodies

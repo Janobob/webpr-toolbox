@@ -6,9 +6,7 @@
 
 Bearbeitet Dateien
 
-// TODO
-
-- [functionsTest.html](./functionsTest.html)
+- [lambdaTest.js](./lambda/lambdaTest.js)
 
 ##### Javascript Goodies
 

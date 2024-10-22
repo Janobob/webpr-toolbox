@@ -12,94 +12,158 @@ Bearbeitet Dateien
 
 Higher order functions
 
-[0,1,2,3].foreach(elem => elem);
-[0,1,2,3].every(elem => elem > 1)
-false
-[0,1,2,3].every(elem => elem < 10)
-true
-[0,1,2,3].some(elem => elem < 10)
-true
-[0,1,2,3,4,5,6].some(elem => {console.log(elem);return elem > 1;})
-erwartet
-0
-1
-2
-true
+```javascript
+// for loop
+[0, 1, 2, 3].foreach((elem) => elem);
 
-so könnte man einen max für eine unendliche Reihe machen.
+// boolean function für jedes Element in Liste / Array
+[0, 1, 2, 3].every((elem) => elem > 1);
+// Output: false
+[0, 1, 2, 3].every((elem) => elem < 10);
+// Output: true
+
+// boolean function für ein Element in Liste / Array
+[0, 1, 2, 3].some((elem) => elem < 10);
+// Output: true
+[0, 1, 2, 3, 4, 5, 6].some((elem) => {
+  console.log(elem);
+  return elem > 1;
+});
+// erwartet:
+// Output:
+// 0
+// 1
+// 2
+// true
+```
+
+So könnte man einen max für eine unendliche Reihe machen.
+
+```javascript
+let max = Number.NEGATIVE_INFINITY;
+
+// auch möglich mit .foreach();
+[0, 1, 2, 3].some((elem) => {
+  if (elem > max) {
+    max = elem;
+  }
+  return false; // return false, damit some nicht früher aufhört
+});
+
+// Output: Max value found: 3
+console.log(`Max ist: ${max}`);
+```
 
 ##### Applied Map/Filter/Reduce
 
-(a, b) vs a => b =>
+**(a, b) vs a => b =>**
 
+```javascript
 // multiple parameters
 const times = (a, b) => a \* b;
-times(2) // ???
-// error message?
+// Fehler weil zweiter Paramter fehlt
+times(2);
+```
 
-Vorteil?
-b = undefined ==> NaN
-viel verwendet von funktionen und libraries
+- _Nachteil:_ b = undefined ==> NaN
+- _Vorteil(?):_ Viel verwendet von Funktionen und Libraries, direkte Fehlermeldung
 
+```javascript
 // parameter chain, "curried"
 const times = a => b => a \* b;
-times(2) // ???
-// useful?
+// Kein Fehler, Rückgabewert ist eine Funktion
+times(2)
+```
 
-Gibt keine Fehlermeldung, rückgabewert ist eine Funktion
+- _Nachteil:_ b = undefined ==> NaN
+- _Vorteil(?):_ Ermöglicht funktionale Programmierung, Kann spezifische Funktionen erstellen.
 
-"partial" application
+Funktionales Programmieren Beispiel:
 
-wenn noch nicht alle parameter gebunden wurden.
+```javascript
+// timesByTwo ist eine Funktion, die eine Zahl mit 2 multipliziert
+const timesByTwo = times(2);
+// Output: 10
+console.log(timesByTwo(5));
+```
 
-elegant mit higher-order functions(map, filter, und reduce)
+**"partial" application**
 
-Google = grosser map reduce :D
+Bedeutet wenn noch nicht alle Parameter gebunden wurden. Wie Beispiel von oben.
+Elegant mit higher-order functions wie `map`, `filter`, und `reduce`
 
-map:
-jedes element wird durch mitgegebene funktion gejagt und ersetzt (z.B. x => x \* 2)
-grösse bleibt gleich
+Kleiner Hinweis: Google ist eigentlich nichts anders ein grosser map reduce 😀;
 
+`map`:
+
+Jedes element wird durch mitgegebene funktion gejagt und ersetzt (z.B. x => x \* 2)
+Die Grösse bleibt dabei aber gleich.
+
+```javascript
 const times = a => b => a \* b;
 const twoTimes = times(2);
 
 [1,2,3].map(x => times(2)(x));
 [1,2,3].map(times(2));
 [1,2,3].map(twoTimes);
+```
 
-filter:
-alle element mit predicate == true werden behalten (z.B. x => x % 2 === 1)
-kann kleiner werden
+`filter`:
 
-partial filter
+Alle element mit predicate == true werden behalten (z.B. x => x % 2 === 1)
+Die Grösse kann kleiner werden (eigentlich was man möchte)
 
-const odd = x => x % 2 === 1;
+```javascript
+// partial filter
+const odd = (x) => x % 2 === 1;
 
-[1,2,3].filter(x => x % 2 === 1);
-[1,2,3].filter(x => odd(x));
-[1,2,3].filter(odd);
+[1, 2, 3].filter((x) => x % 2 === 1);
+[1, 2, 3].filter((x) => odd(x));
+[1, 2, 3].filter(odd);
+```
 
-reduce:
-reduce((acc, cur) => acc + cur)
+`reduce`:
+Die `reduce`-Funktion wird verwendet, um ein Array auf einen einzigen Wert zu reduzieren. Sie durchläuft das Array und wendet eine Funktion auf jedes Element an, wobei ein Akkumulator (`acc`) und das aktuelle Element (`cur`) verwendet werden. Die Funktion hat zwei Parameter:
 
-acc = accumulator
-cur = current
+- **Callback-Funktion:** Diese Funktion wird auf jedes Element des Arrays angewendet. Sie nimmt zwei Argumente:
+  - acc (Akkumulator): Der akkumulierte Wert, der nach jedem Durchlauf aktualisiert wird.
+  - cur (aktuelles Element): Das aktuelle Element des Arrays, das gerade verarbeitet wird.
+- **Initialwert (optional):** Ein optionaler Startwert für den Akkumulator. Wenn kein Initialwert angegeben wird, wird das erste Element des Arrays als Initialwert verwendet und die Iteration beginnt beim zweiten Element.
 
-1+2 3
-3+3
+```javascript
+reduce((acc, cur) => acc + cur).
+```
 
-un-partial reduce:
+```javascript
+// un-partial reduce
 const plus = (acc, cur) => acc + cur;
-[1,2,3].reduce((acc, cur) => acc + cur);
-[1,2,3].reduce(plus);
+[1, 2, 3].reduce((acc, cur) => acc + cur);
+[1, 2, 3].reduce(plus);
 
 // variant with initial accu value as 2nd argument
 // then cur starts at first element
-
-[1,2,3].reduce(plus, 0)
+[1, 2, 3].reduce(plus, 0);
+```
 
 ##### Snake and Tupeln(n)
 
 ### Wissenwertes / Gelerntes
 
-methode every and some.
+JS Methode welche sehr cool und das C# Gegenstück.
+
+`every(...)` ==> `All(...)`
+
+`some(...)` ==> `Any(...)`
+
+Verwenden von unpartial um filter und map leserlicher und wiederverwendbar zu machen.
+
+```javascript
+const isGreaterThan = (num, threshold) => num > threshold);
+const multiplyBy = (num, factor) => num * factor);
+
+const numbers = [1, 2, 3, 4, 5];
+
+// Verwende isGreaterThan und multiplyBy mit filter und map
+const filteredNumbers = numbers.filter(isGreaterThan(2)); // Alle Zahlen größer als 2
+const mappedNumbers = numbers.map(multiplyBy(2)); // Alle Zahlen mal 2
+```

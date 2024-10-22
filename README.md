@@ -10,3 +10,4 @@ Da ich bereits seit Jahren mit modernen Javascript Frameworks arbeite (Angular u
 - [Woche 3](./week3/week3.md)
 - [Woche 4](./week4/week4.md)
 - [Woche 5](./week5/week5.md)
+- [Woche 6](./week6/week6.md)

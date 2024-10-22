@@ -4,6 +4,10 @@
 
 ### Inhalt
 
+Slides
+
+- [slides](WebProgramming_3_Snake_ADT.pdf)
+
 Bearbeitet Dateien
 
 - [lambda.js](./lambda.js)

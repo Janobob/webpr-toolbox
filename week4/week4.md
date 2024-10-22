@@ -4,6 +4,10 @@
 
 ### Inhalt
 
+Slides
+
+- [slides](WebProgramming_4_MapFilterReduce.pdf)
+
 Bearbeitet Dateien
 
 - [lambda.js](./lambda/lambda.js)

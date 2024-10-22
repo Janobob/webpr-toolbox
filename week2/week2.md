@@ -4,6 +4,10 @@
 
 ### Inhalt
 
+Slides
+
+- [slides](WebProgramming_2_Lambda.pdf)
+
 Bearbeitet Dateien
 
 - [scopeTest.html](./scopeTest.html)

@@ -15,12 +15,10 @@ TODO
 - [AllTests.html](./AllTests.html)
 - [object.js](./object/object.js)
 - [objectTests.js](./object/objectTest.js)
-
-Weitere Infos + Hausaufgaben
-
-TODO
-
-- [Oopsie](./oopsie)
+- [inheritance.js](./inheritance/inheritance.js)
+- [inheritanceTest.js](./inheritance/inheritanceTest.js)
+- [util.js](./util/util.js)
+- [utilTest.js](./util/utilTest.js)
 
 ##### Javascript Goodies
 
@@ -121,12 +119,17 @@ const s = new Student("Top", "Student", 5.5);
 **JavaScript**: Dynamic by name,
 Pattern: Chain of Responsibility
 
-Refactoring Tests
-
-Exkurs
-
 ### Wissenwertes / Gelerntes
 
 Array mit beliebiger Länge erstellen:
 
+```javascript
+const n = 10; // Länge des Arrays
+const array = Array.from({ length: n });
+const arrayWithValues = Array.from({ length: n }, (it, idx) => idx * 2);
+// Beispiel: Werte sind doppelte des Index
+// Output: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+```
+
+Babel Editor:
 https://babeljs.io/repl

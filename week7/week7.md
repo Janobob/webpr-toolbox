@@ -10,8 +10,6 @@ Slides
 
 Bearbeitet Dateien
 
-TODO
-
 - [AllTests.html](./AllTests.html)
 - [object.js](./object/object.js)
 - [objectTests.js](./object/objectTest.js)

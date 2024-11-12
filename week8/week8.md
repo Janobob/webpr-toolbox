@@ -13,12 +13,11 @@ Bearbeitet Dateien
 TODO
 
 - [AllTests.html](./AllTests.html)
-- [object.js](./object/object.js)
-- [objectTests.js](./object/objectTest.js)
-- [inheritance.js](./inheritance/inheritance.js)
-- [inheritanceTest.js](./inheritance/inheritanceTest.js)
+- [lambda.js](./lambda/lambda.js)
+- [lambdaTest.js](./lambda/lambdaTest.js)
 - [util.js](./util/util.js)
 - [utilTest.js](./util/utilTest.js)
+- [TryTypeSystem.html](TryTypeSystem.html)
 
 ##### Javascript Goodies
 ```javascript
